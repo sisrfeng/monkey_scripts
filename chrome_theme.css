@@ -1,0 +1,485 @@
+  
+/* ==UserStyle==
+@name           Simple Light
+@namespace      leo_180
+@author         leo_180
+@version        2022-07-18
+@license        CC-BY-NC-SA-4.0
+@preprocessor   uso
+
+@description    simplified global solarized light
+==/UserStyle== */
+
+/* original repo:  */
+/* https://uso.kkx.one/style/173443 */
+/* 
+UserCSS is essentially a CSS stylesheet
+    with some extra data added to the beginning.  
+    Besides standard CSS,
+        these preprocessors are supported:
+            LESS,   
+            Stylus-lang 
+            the USO-format.
+
+    Furthermore you can utilize whatever you want by using live-reload and your own external editor
+*/
+
+@-moz-document url-prefix("ftp://"),
+url-prefix("file://"),
+url-prefix("about"),
+url-prefix("javascript"),
+regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
+{
+     /* Declares the colors. You may want to adjust these values to your taste. */
+    * {
+        --base0   : #839496;
+        --base1   : #93a1a1;
+        /* --base2   : #eee8d5; */
+        /* base2改叫block, 表示code block */
+        --block   : #f0f0f0;
+        --border  : #c0c0c7;
+        --Border  : #f0f0e9;
+
+        --bg      : #f0f0e0;
+
+        --base00  : #657b83;
+            
+        --txt     : #444444;
+        --txt2    : #588e75;
+        --base02  : #073642;
+        --base03  : #002b36;
+
+        --gray    : #404044;
+        --black   : #551111;
+        --bold    : #404044;
+        --faded   : #5a5c58;
+        --url     : #306e57;
+
+        --red     : #dc322f;
+        --magenta : #d33682;
+        --orange  : #cb4b16;
+        --yellow  : #998844;
+        --green   : #859900;
+        --blue    : #268bd2;
+        --cyan    : #2aa198;
+        --violet  : #6c71c4;
+
+        /* For debugging what the original code is doing */
+        --debug   : #FF000F;
+    }
+
+    html {
+        background: var(--bg)  !important
+    }
+
+    /*----- default text, border & background colors -----*/
+    * {
+        color               : var(--txt) !important;
+        border-color        : var(--border) !important;
+        outline-color       : var(--border) !important;
+        /* text-shadow         : none !important;  */
+        box-shadow          : none !important;
+        /* box-shadow:   X , Y offsets relative to the element,  blur and spread radius, and color.  */
+        background-color    : var(--bg) !important;
+        
+        border-top-color    : var(--border) !important;
+        border-bottom-color : var(--border) !important;
+        border-left-color   : var(--border) !important;
+        border-right-color  : var(--border) !important
+    }
+
+    /* 影响stackoverflow的顶栏 */
+    body {
+        background: #eee8d500 !important
+    }
+
+    a,
+    a * {
+        color           : var(--url)  !important;
+        text-decoration : none        !important
+    }
+
+    a:hover,
+    a:hover *,
+    a:visited:hover,
+    a:visited:hover *,
+    span[onclick]:hover,
+    div[onclick]:hover,
+    [role="link"]:hover,
+    [role="link"]:hover *,
+    [role="button"]:hover *,
+    [role="menuitem"]:hover,
+    [role="menuitem"]:hover *,
+    .link:hover,
+    .link:hover *         {  color: var(--yellow) !important  }
+    
+
+    a:visited,
+    a:visited *   {  color: var(--faded) !important  }
+
+    a.highlight,
+    a.highlight *,
+    a.active,
+    a.active *,
+    .selected,
+    .selected *,
+    [href="#"] {
+                    color: var(--txt2) !important;
+                    font-weight: bold !important
+                }
+
+    h1,
+    h2,
+    h1 *,
+    h2 * {  color: var(--black) !important  }
+      
+    h3,
+    h4,
+    h3 *,
+    h4 * {  color: rgb(48, 110, 87) !important  }
+        /* color: var(--yellow) !important */
+    h5,
+    h6,
+    h5 *,
+    h6 * {  color: var(--orange) !important  }
+
+    /* Bold,  italic, underlined */
+    strong,
+    [id*="headline"],
+    [class*="headline"],
+    [id*="header"],
+    [class*="header"],
+    [class*="header"] td,
+    b{  color: var(--bold) !important  }
+    /* 知乎高亮受它控制 */
+
+    i,
+    u {  color: var(--black) !important  }
+    /* 
+      a h1,
+      a h2,
+      a h3,
+      a h4, a h5, a h6, h1 a, h2 a, h3 a,
+      a strong,
+      a[id*="headline"],
+      a[class*="headline"],
+      a[id*="header"],
+      a[class*="header"] {
+          text-decoration: underline !important
+        }
+    */
+    [class*="error"],
+    [class*="alert"],
+    code,
+    span[onclick],
+    div[onclick]    {  color: var(--orange) !important  }
+
+    ::-moz-selection,
+    ::selection {
+        background: var(--base02) !important;
+        color: var(--base1) !important
+    }
+
+    :focus {  outline: none !important  }
+
+    /*----- menu & co background-colors -----*/
+    div[style="display: block;"],
+    div[role="navigation"] {  background: var(--bg) !important  }
+
+    table {
+            background: var(--bg) !important;
+            border-radius: 6px !important
+          }
+    table > tbody > tr:nth-child(even),
+    table > tbody > tr > td:nth-child(even)   {  background-color: var(--block) !important  }
+
+
+    iframe,
+    embed,
+    nav,
+    label [onclick],
+    nav ul,
+    div[style*="position:"][style*="left:"][style*="visible"],
+    div[style*="z-index:"][style*="left:"][style*="visible"],
+    div[style*="-moz-user-select"],
+    div[role="menu"],
+    div[role="dialog"],
+    span[class*="script"] div,
+    [id*="menu"],
+    [id*="Menu"],
+    [class*="dropdown"],
+    [class*="popup"],
+    [class="title"],
+    ul[style*="display:"],
+    ul[style*="visibility:"] ul,
+    [id*="nav"] ul,
+    [class*="nav"] ul,
+    ul[class*="menu"],
+    a[onclick][style*="display"],
+    a[id*="ghosteryfirefox"],
+    #ghostery-purple-bubble,
+    #translator-popup,
+    .menu,
+    .tooltip,
+    .hovercard,
+    .vbmenu_popup {
+        background    : var(--bg) !important;
+        border-radius : 5px;
+        box-shadow    : 1px 1px 2px var(--base1) !important
+                        /* Adds shadow around elements like ul,
+                        iframes and videos and etc */ 
+    }
+
+    header,
+    #header,
+    footer,
+    #footer {
+        background: var(--bg)!important;
+        box-shadow: 0 0 2px var(--base1) !important
+    }
+
+    /* what's this?  just leave it here */
+    body > #dialog,
+    body > .xenOverlay {
+        background      : var(--debug)!important;
+        background-clip : padding-box !important;
+        box-shadow      : 0 0 2px var(--debug) !important;
+        border          : 10px solid var(--debug) !important;
+        border-radius   : 0 !important;
+    }
+
+    [id*="overlay"],
+    [id*="lightbox"],
+    blockquote {
+        background-color : var(--block) !important;
+        border-radius    : 5px
+    }
+
+    pre,
+    dl,
+    .Message code {  background-color: var(--block) !important  }
+    
+    
+    /*  default buttons, searchboxes   */
+    input,
+    select,
+    button,
+    [role="button"],
+    a.button,
+    a.submit,
+    a.BigButton,
+    a.TabLink,
+    .install[onclick] {
+        -moz-appearance    : none !important;
+        -webkit-appearance : none !important;
+
+        background         : var(--bg) !important;
+        color              : var(--base00) !important;
+                            /* color of text you write */
+        transition         : border-color 0.3s !important;
+        border             : 2px solid var(--border) !important;
+                            /* Checkbox and etc border */
+        /* border-radius: 4px !important; */
+    }
+
+    a[href="javascript:;"],
+    a[class*="button"]:not(:empty),
+    a[id*="button"]:not(:empty),
+    a[id*="Button"]:not(:empty),
+    div[class*="button"][onclick] {
+        background   : var(--block) !important;
+        color        : var(--base1) !important;
+        transition   : border-color 0.3s !important;
+        border-color : var(--border) !important;
+    }
+
+    a[href="javascript:;"]:hover,
+    a[class*="button"]:not(:empty):hover,
+    a[id*="button"]:hover,
+    a[id*="Button"]:not(:empty):hover,
+    div[class*="button"][onclick]:hover {
+        background : var(--block) !important;
+        color      : var(--yellow) !important
+    }
+
+    input *,
+    select *,
+    button *,
+    a.button *,
+    a.submit * {
+        color: var(--base1) !important;
+        text-shadow: none   !important
+    }
+
+    /* Border when hovering inputs, buttons and such */
+        input:hover,
+        input[type="button"]:hover,
+        select:hover,
+        button:hover,
+        [role="button"]:hover,
+        a.button:hover,
+        a.submit:hover,
+        a.BigButton:hover,
+        a.TabLink:hover {
+            color               : var(--base1) !important;
+            border              : 2px solid var(--blue) !important;
+            /* border-top-color    : var(--green) !important; */
+            /* border-bottom-color : var(--green) !important; */
+            /* border-left-color   : var(--green) !important; */
+            border-right-color  : var(--green) !important
+        }
+
+    /* Shadow when you are writing in a input box */
+         input:focus,
+        select:focus {  box-shadow: 0 0 2px var(--green) !important  }
+      
+
+    input *:hover * {  color: var(--base1) !important  }
+    
+
+    input[disabled],
+    select[disabled],
+    button[disabled],
+    input[disabled]:hover,
+    select[disabled]:hover,
+    button[disabled]:hover,
+    input[disabled]:focus,
+    select[disabled]:focus,
+    button[disabled]:focus {
+        opacity      : 0.5 !important;
+        border-color : var(--border) !important
+    }
+
+    input[type="checkbox"] {
+        border-radius: 1px !important
+    }
+    input[type="radio"],
+    input[type="radio"]:focus {
+        border-radius: 100% !important
+    }
+    input[type="checkbox"],
+    input[type="radio"] {
+        min-width: 12px;
+        min-height: 12px
+    }
+    input[type="checkbox"]:checked,
+    input[type="radio"]:checked {
+        border-color: var(--green) !important;
+        box-shadow: 0 0 2px var(--green) !important
+    }
+    /* Menus where you select an option */
+    select {
+        /* The url is basically the down arrow to indicate it's a select menu */
+        padding-right: 15px !important;
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAeSURBVBhXY5g5c+Z/BiwALo6uAEMDTACXSWgSDAwA4jATh950E30AAAAASUVORK5CYII=') no-repeat right 4px center var(--block) !important;
+        transition: border-color 0.3s, background-position 0.3s !important
+    }
+    button:active,
+    input[type="submit"]:active,
+    input[type="button"]:active,
+    a.button:active,
+    a[class*="button"]:not(:empty):active,
+    a.submit:active,
+    a.BigButton:active,
+    a.TabLink:active,
+    .Active .TabLink {
+        background : var(--block) !important;
+        color      : var(--orange) !important
+    }
+    textarea {
+        -moz-appearance    : none !important;
+        -webkit-appearance : none !important;
+        background         : var(--block) !important;
+        border-radius      : 3px !important;
+        border             : 1px solid var(--border) !important;
+        transition         : border-color, background, 0.3s !important
+        /* box-shadow: inset 0 0 8px var(--debug) !important; */
+            /* ugly */
+    }
+    textarea,
+    textarea * {
+        color: var(--black) !important;
+    }
+
+    textarea:hover,
+    textarea:focus:hover {
+        border-color: var(--border) !important
+    }
+    textarea:focus {
+        background   : var(--block) !important;
+        border-color : var(--border) !important
+    }
+    textarea:focus,
+    textarea:focus > * {
+        text-shadow: none !important;
+        box-shadow: none !important
+    }
+
+    option,
+    optgroup {
+        -moz-appearance    : none !important;
+        -webkit-appearance : none !important;
+        background         : none !important;
+        color              : var(--base1) !important
+    }
+    optgroup {
+        background : var(--block) !important;
+        color      : var(--base1) !important
+    }
+    option:not([disabled]):hover,
+    option:focus,
+    option:checked {
+        background : var(--block) !important;
+        color      : var(--base1) !important
+    }
+    /*----- IMAGE CHANGES -----*/
+    /* adding :not(div) makes buttons still show.
+        Many sites such as facebook
+        use buttons by putting a div with
+        a background image
+        Still didn't find other examples to apply that
+        consider making an extra code only for sites where you should do that
+    */
+    body,
+    *:not(div):not(:empty):not(html):not(span):not(a):not(b):not(option):not(select):not(img):not([style="display: block;"]):not([onclick*="open"]):not([onclick*="s_objectID"]):not([class*="stars"]):not([id*="stars"]):not([id="rating"]):not([class="rating"]):not([class*="SPRITE"]):not([id*="SPRITE"]):not([class*="item"]):not([id*="item"]):not([class*="thumb"]):not([class*="icon"]):not([class*="photo"]):not(.view):not(.text):not([id*="lbImage"]):not([class*="cc-in"]):not([class*="gr-body"]):not([id*="watch"]):not(#globalsearch):not([id*='userNavigationLabel']):not([role*='button']):not([class*='uiToggle']),
+    .r3_hm,
+    .gmbutton2 b,
+    .gtab-i,
+    .ph,
+    .bstab-iLft,
+    .csb,
+    #pagination div,
+    [style*="sprite2.png"],
+    #mw-head-base,
+    #mw-page-base {
+        background-image: none !important
+    }
+
+
+    /* Unnecessary */
+    /* img { */
+        /* opacity: .7 !important; */
+        /* transition: opacity .2s */
+        /* } */
+    /*  */
+    /* img:hover,a:hover img, #mpiv-popup { */
+        /* opacity: 1 !important */
+        /* } */
+
+    /* Google search box */
+    .logo ~ div {
+        background-color: var(--block) !important;
+        /* box-shadow: 0 4px 4px 0 var(--green) !important; */
+    }
+
+    /* facebook UI elements */
+    [class*='uiContextualLayerBelowRight'],
+    [class*='uiContextualLayerBelowLeft'] {  background-color: var(--block) !important  }
+
+    /* github顶栏的border   不行...  */
+    /* #command-palette-pjax-container {  background-color: var(--debug) !important  } */
+	
+
+
+}
+
