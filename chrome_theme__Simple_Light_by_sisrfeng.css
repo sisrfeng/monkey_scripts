@@ -75,19 +75,29 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
 
     /*----- default text, border & background colors -----*/
     * {
-        color               : var(--txt) !important;
+        /* color               : var(--txt) !important; */
+		/* background-color    : var(--bg) !important;  */
+		color               : var(--txt) ;
+		background-color    : var(--bg)  ;
         border-color        : var(--border) !important;
         outline-color       : var(--border) !important;
         /* text-shadow         : none !important;  */
         box-shadow          : none !important;
         /* box-shadow:   X , Y offsets relative to the element,  blur and spread radius, and color.  */
-        background-color    : var(--bg) !important;
+
         
         border-top-color    : var(--border) !important;
         border-bottom-color : var(--border) !important;
         border-left-color   : var(--border) !important;
         border-right-color  : var(--border) !important
     }
+	
+	a,
+	summary,
+	div
+	{
+		background-color    : var(--bg) !important /* !important必须要加 */
+	}
 
     /* 影响stackoverflow的顶栏 */
     body {
@@ -170,7 +180,7 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
         }
     */
 	
-	/* code, */
+	
     [class*="error"],
     [class*="alert"],
     span[onclick],
@@ -182,6 +192,14 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
 		
     	color:      var(--block_fg) !important  
 	}
+	
+	/* div[class*="CodeMirror*"]   不行*/
+	span.cm,
+	span.pl-c{
+	    background: var(--block) !important;
+
+	}
+	
 	
 
     ::-moz-selection,
