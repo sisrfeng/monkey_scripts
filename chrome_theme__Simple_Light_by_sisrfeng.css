@@ -37,19 +37,20 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
         /* --base2   : #eee8d5; */
         /* base2改叫block, 表示code block */
         --block   : #f0f0f0;
-        --border  : #c0c0c7;
-        --Border  : #f0f0e9;
-
+		--block_fg: #333333;
+        /* --border  : #c0c0c7; */
+		--border  : #e0e0e7;
+        --Border  : #f0f0e2;
         --bg      : #f0f0e0;
 
         --base00  : #657b83;
             
-        --txt     : #444444;
+        --txt     : #001111;
         --txt2    : #588e75;
         --base02  : #073642;
         --base03  : #002b36;
 
-        --gray    : #404044;
+        --gray    : #303034;
         --black   : #551111;
         --bold    : #404044;
         --faded   : #5a5c58;
@@ -57,7 +58,7 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
 
         --red     : #dc322f;
         --magenta : #d33682;
-        --orange  : #cb4b16;
+        --orange  : #cb8b86;
         --yellow  : #998844;
         --green   : #859900;
         --blue    : #268bd2;
@@ -136,7 +137,7 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
     h3,
     h4,
     h3 *,
-    h4 * {  color: rgb(48, 110, 87) !important  }
+    h4 * {  color: rgb(1, 100, 200) !important  }
         /* color: var(--yellow) !important */
     h5,
     h6,
@@ -168,11 +169,20 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
           text-decoration: underline !important
         }
     */
+	
+	/* code, */
     [class*="error"],
     [class*="alert"],
-    code,
     span[onclick],
-    div[onclick]    {  color: var(--orange) !important  }
+    div[onclick]    {  
+	    background: var(--block) !important;
+		/* 现在还是很丑。
+		code block里, 只能匹配到有定义syntax的地方 
+		(readme里很多位置不会被匹配, 所以才显得不丑*/
+		
+    	color:      var(--block_fg) !important  
+	}
+	
 
     ::-moz-selection,
     ::selection {
@@ -224,8 +234,8 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
     .hovercard,
     .vbmenu_popup {
         background    : var(--bg) !important;
-        border-radius : 5px;
-        box-shadow    : 1px 1px 2px var(--base1) !important
+        border-radius : 1px;
+        box-shadow    : 0px 0px 1px var(--base1) !important
                         /* Adds shadow around elements like ul,
                         iframes and videos and etc */ 
     }
@@ -238,21 +248,12 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
         box-shadow: 0 0 2px var(--base1) !important
     }
 
-    /* what's this?  just leave it here */
-    body > #dialog,
-    body > .xenOverlay {
-        background      : var(--debug)!important;
-        background-clip : padding-box !important;
-        box-shadow      : 0 0 2px var(--debug) !important;
-        border          : 10px solid var(--debug) !important;
-        border-radius   : 0 !important;
-    }
 
     [id*="overlay"],
     [id*="lightbox"],
     blockquote {
         background-color : var(--block) !important;
-        border-radius    : 5px
+        border-radius    : 2px
     }
 
     pre,
@@ -277,10 +278,9 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
         color              : var(--base00) !important;
                             /* color of text you write */
         transition         : border-color 0.3s !important;
-        border             : 2px solid var(--border) !important;
-                            /* Checkbox and etc border */
-        /* border-radius: 4px !important; */
-    }
+        border             : 1px solid var(--border) !important;
+                            /* Checkbox, github顶部搜索框和star框 等 */
+      }
 
     a[href="javascript:;"],
     a[class*="button"]:not(:empty),
@@ -322,11 +322,11 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
         a.BigButton:hover,
         a.TabLink:hover {
             color               : var(--base1) !important;
-            border              : 2px solid var(--blue) !important;
+            border              : 1px solid var(--red) !important;
             /* border-top-color    : var(--green) !important; */
             /* border-bottom-color : var(--green) !important; */
             /* border-left-color   : var(--green) !important; */
-            border-right-color  : var(--green) !important
+            /* border-right-color  : var(--green) !important */
         }
 
     /* Shadow when you are writing in a input box */
@@ -365,7 +365,7 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
     input[type="checkbox"]:checked,
     input[type="radio"]:checked {
         border-color: var(--green) !important;
-        box-shadow: 0 0 2px var(--green) !important
+        box-shadow: 0 0 1px var(--green) !important
     }
     /* Menus where you select an option */
     select {
@@ -390,7 +390,7 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
         -moz-appearance    : none !important;
         -webkit-appearance : none !important;
         background         : var(--block) !important;
-        border-radius      : 3px !important;
+        border-radius      : 1px !important;
         border             : 1px solid var(--border) !important;
         transition         : border-color, background, 0.3s !important
         /* box-shadow: inset 0 0 8px var(--debug) !important; */
@@ -482,4 +482,3 @@ regexp("https?://(?!(www.youtube.com|www.your-sites-here.com)).*")
 
 
 }
-
